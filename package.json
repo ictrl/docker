@@ -1,0 +1,19 @@
+{
+  "name": "docker-node-mongodb-redis",
+  "version": "1.0.0",
+  "description": "A docker application which runs Nodejs, mongodb and Redis containers",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "Samrat Saurav Jaiswal",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  }
+}
