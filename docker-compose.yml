@@ -9,6 +9,15 @@ services:
     volumes:
       - db:/data/db
 
+  cache:
+    container_name: cache
+    image : redis:6.2-alpine
+    restart: always
+    ports:
+      - 6379:6379
+    volumes:
+      - .data:/data
+
   app:
     container_name: app
     build: .
@@ -20,10 +29,13 @@ services:
       PORT: 5000
       ENV: CONTAINER
       MONGODB_URI: mongodb://db:27017
+      REDIS_HOST: cache
     depends_on:
       - db
+      - cache
     links:
       - db
+      - cache
 
 volumes:
   db: {}
